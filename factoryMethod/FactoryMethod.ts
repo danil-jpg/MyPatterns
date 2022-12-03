@@ -1,5 +1,3 @@
-// С фабричным методом
-
 abstract class ButtonFactory {
   abstract factory(): Button;
 }
