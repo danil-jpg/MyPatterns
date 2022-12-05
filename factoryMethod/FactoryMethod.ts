@@ -46,7 +46,7 @@ class ConcreteButtonCreator2 extends ButtonFactory {
 const btn = new ConcreteButtonCreator1();
 
 const Btn1 = new ConcreteBtn1();
-console.log(btn.factory().getValue(1));
+console.log(btn);
 
 // классу заранее неизвестно, объекты каких подклассов ему нужно создавать.
 

@@ -23,9 +23,6 @@ class Robot implements Clonable {
 const prototype = new Robot(150, 70, "grey", 1500);
 
 const testVar = Object.create(prototype);
-// for (let i in testVar) {
-//   console.log(testVar[i]);
-// }
 
 const robot1 = prototype.clone();
 
@@ -33,3 +30,7 @@ robot1.color = "Red";
 console.log(testVar);
 
 console.log(prototype);
+
+// Прототип — это порождающий паттерн проектирования, который позволяет копировать объекты, не вдаваясь в подробности их реализации.
+
+// Button - интерфейс,а не класс, - без указания конкретных классов продуктов. (К примеру,клонабл - интерфейс,оно привязано к интерфейсу,а не к конкретному классу)
