@@ -16,31 +16,37 @@ class ConcreteCar extends Car {
     return `This is a ${this.color.getColor()} car`;
   }
 }
+// Это расширеная абстракция или нет?
 
-class Color {
-  public color;
-  constructor(color) {
-    this.color = color;
+interface Color {
+  color: string;
+  getColor(): string;
+}
+
+// Класс Цвет - реализация
+
+class BlackColor implements Color {
+  public color: string;
+  constructor() {
+    this.color = "Black";
   }
   getColor() {
     return this.color;
   }
 }
 
-// Класс Цвет - реализация
-
-class BlackColor extends Color {
+class RedColor implements Color {
+  public color: string;
   constructor() {
-    super("Black");
+    this.color = "Red";
   }
-}
-
-class RedColor extends Color {
-  constructor() {
-    super("Red");
+  getColor() {
+    return this.color;
   }
 }
 
 console.log(new ConcreteCar(new BlackColor()).paint());
 
 console.log(new ConcreteCar(new RedColor()).paint());
+
+// Мост — это структурный паттерн, который разделяет бизнес-логику или большой класс на несколько отдельных иерархий, которые потом можно развивать отдельно друг от друга.

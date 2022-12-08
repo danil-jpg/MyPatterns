@@ -15,7 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var Car = /** @class */ (function () {
     function Car(color) {
-        // this.color = color;
+        this.color = color;
     }
     return Car;
 }());
@@ -30,29 +30,34 @@ var ConcreteCar = /** @class */ (function (_super) {
     };
     return ConcreteCar;
 }(Car));
-var Color = /** @class */ (function () {
-    function Color(color) {
-        // this.color = color;
+// class Color {
+//   public color;
+//   constructor(color) {
+//     this.color = color;
+//   }
+//   getColor() {
+//     return this.color;
+//   }
+// }
+// Класс Цвет - реализация
+var BlackColor = /** @class */ (function () {
+    function BlackColor() {
+        this.color = "Black";
     }
-    Color.prototype.getColor = function () {
+    BlackColor.prototype.getColor = function () {
         return this.color;
     };
-    return Color;
-}());
-// Класс Цвет - реализация
-var BlackColor = /** @class */ (function (_super) {
-    __extends(BlackColor, _super);
-    function BlackColor() {
-        return _super.call(this, "Black") || this;
-    }
     return BlackColor;
-}(Color));
-var RedColor = /** @class */ (function (_super) {
-    __extends(RedColor, _super);
+}());
+var RedColor = /** @class */ (function () {
     function RedColor() {
-        return _super.call(this, "Red") || this;
+        this.color = "Red";
     }
+    RedColor.prototype.getColor = function () {
+        return this.color;
+    };
     return RedColor;
-}(Color));
+}());
 console.log(new ConcreteCar(new BlackColor()).paint());
 console.log(new ConcreteCar(new RedColor()).paint());
+// Мост — это структурный паттерн, который разделяет бизнес-логику или большой класс на несколько отдельных иерархий, которые потом можно развивать отдельно друг от друга.
