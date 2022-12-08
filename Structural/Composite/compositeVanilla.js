@@ -1,6 +1,6 @@
  class Component {
-	 price ;
-	 name;
+	//  price ;
+	//  name;
   
 	getPrice() {
 	  return this.price || 0;
