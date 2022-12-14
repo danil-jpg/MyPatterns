@@ -1,3 +1,5 @@
+// Мост — это структурный паттерн проектирования, который разделяет один или несколько классов на две отдельные иерархии — абстракцию и реализацию, позволяя изменять их независимо друг от друга.
+
 class Car {
   public color;
 
@@ -44,6 +46,8 @@ class RedColor implements Color {
     return this.color;
   }
 }
+
+// new BlackCar1,new RedCar1,new BrownCar1 etc
 
 console.log(new ConcreteCar(new BlackColor()).paint());
 

@@ -20,7 +20,7 @@ class Adapter extends TargetString {
 
   getConvertedString() {
     const result = `${this.adaptee.getNum().toString()} and some other symbols`;
-    return `${result}`;
+    return result;
   }
 }
 

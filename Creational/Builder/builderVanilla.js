@@ -1,49 +1,85 @@
-class Builder {
-	Step1()
-	Step2()
-	Step3()
+//  * Имеет смысл использовать паттерн Строитель только тогда, когда ваши продукты
+//  * достаточно сложны и требуют обширной конфигурации.
+
+class Tank {
+    constructor(){
+    }
+    setFrame(){
+
+    };
+    setTower(){
+
+    };
+    setCanon(){
+    };
   }
   
-  class ConcreteFabric extends Builder {
-	Step1() {
-	  console.log("FirstStepCompleted");
-	}
+  class TankBuilder extends Tank {
   
-	Step2() {
-	  return new SmallFabric();
-	}
+    constructor() {
+        super()
+
+    }
+    setFrame(frame) {
+      this.frame = frame;
+      return this;
+    }
   
-	Step3() {
-	  return new MediumFabric();
-	}
+    setTower(tower) {
+      this.tower = tower;
+      return this;
+    }
+  
+    setCanon(canon) {
+      this.canon = canon;
+      return this;
+    }
+  
+    getResault() {
+      return this;
+    }
   }
   
-  class SmallFabric {}
+  class ManualTankBuilder extends Tank {
+    constructor() {
+        super()
+
+    }
+    setFrame(frame) {
+      this.frame = frame;
+      return this;
+    }
   
-  class MediumFabric {}
+    setTower(tower) {
+      this.tower = tower;
+      return this;
+    }
   
-  class Director {
-	 #builder;
+    setCanon(canon) {
+      this.canon = canon;
+      return this;
+    }
   
-	 setBuilder(builder) {
-	  this.builder = builder;
-	}
-  
-	 getSmallFabric() {
-	  this.builder.Step1();
-	  this.builder.Step2();
-	}
-  
-	 getSmallMedium() {
-	  this.builder.Step1();
-	  this.builder.Step3();
-	}
+    getResault()  {
+      return this;
+    }
   }
   
-  const director = new Director();
-  director.setBuilder(new ConcreteFabric());
+  class T72 {}
   
-  director.getSmallFabric();
+  class ManualForT72 {}
   
-  director.getSmallMedium();
+  const t72Def = new TankBuilder().setFrame("Defaul frame").setTower("T64 Tower").setCanon("T72 canon").getResault();
+  console.table(t72Def);
+  
+  const t72ManualDef = new TankBuilder().setFrame("There is a def frame").setTower("There is a t64 tower").setCanon("There is a def T72 canon").getResault();
+  console.table(t72ManualDef);
+  
+  const t72M = new TankBuilder().setFrame("modification frame ").setTower("T64 Tower modification").setCanon("T72 canon modification").getResault();
+  console.table(t72M);
+  
+  const t72ManualM = new TankBuilder().setFrame("There is a modification  frame").setTower("There is a modification t64 tower").setCanon("There is a modification T72 canon").getResault();
+  console.table(t72ManualM);
+  
+
   

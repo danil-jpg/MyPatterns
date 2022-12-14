@@ -3,8 +3,10 @@
 
 class Tree {
   private type;
+  private hasRoot;
   constructor(type) {
     this.type = type;
+    this.hasRoot = true;
   }
 }
 
