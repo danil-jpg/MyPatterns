@@ -1,33 +1,62 @@
-class VeryLargeClass {
-	  method1() {}
+// Фасад — это структурный паттерн проектирования, который предоставляет простой интерфейс к сложной системе классов, библиотеке или фреймворку.
+
+class GoogleFontsAPI {
+	 helvetica() {
+	  return "This is helvetica font and its loaded|";
+	}
   
-	  method2() {}
+	 timesNewRoman() {
+	  return "This is time new roman font and its loaded|";
+	}
   
-	  method5() {}
+	 orbicle() {
+	  return "This is orbicle font and its loaded|";
+	}
   }
   
-  class VeryLargeClass2 {
-	  method1() {}
+  class TextLoaderAPI {
+	 greetingTextUser(font) {
+	  return `${font} Greetings,user!`;
+	}
   
-	  method2() {}
+	 greetingTextAdmin(font) {
+	  return `${font} Greetings,admin!`;
+	}
   
-	  method5() {}
+	 greetingTextWorker(font) {
+	  return `${font} Greetings,worker!`;
+	}
   }
   
   class Facade {
-	constructor(check) {
-	  this.check = check;
-	}
-	  operation1()  {
-	  const var1 = new VeryLargeClass().method1();
-	  const var2 = new VeryLargeClass2().method2();
+	 greetUser() {
+	  const fontForUser = new GoogleFontsAPI().helvetica();
+	  const textForUser = new TextLoaderAPI().greetingTextUser(fontForUser);
+	  return textForUser;
 	}
   
-	  operation2() {
-	  const var1 = new VeryLargeClass().method5();
-	  const var2 = new VeryLargeClass2().method1();
+	 greetWorker() {
+	  const fontForWorker = new GoogleFontsAPI().timesNewRoman();
+	  const textForWorker = new TextLoaderAPI().greetingTextWorker(fontForWorker);
+	  return textForWorker;
+	}
+  
+	 greetAdmin() {
+	  const fontForAdmin = new GoogleFontsAPI().orbicle();
+	  const textForAdmin = new TextLoaderAPI().greetingTextAdmin(fontForAdmin);
+	  return textForAdmin;
 	}
   }
   
-  const facade1 = new Facade(true).operation1();
+  const facade1 = new Facade();
+  
+  const greetUser = facade1.greetUser();
+  const greetAdmin = facade1.greetAdmin();
+  const greetWorker = facade1.greetWorker();
+  
+  console.log(greetUser);
+  console.log("-");
+  console.log(greetAdmin);
+  console.log("-");
+  console.log(greetWorker);
   
