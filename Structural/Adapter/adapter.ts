@@ -1,40 +1,38 @@
-class TargetString {
-  getString(): string {
-    return "12345";
+// Розетки типа С - Европейские (используются в Украине),розетки типа Ф - используются в Америке.
+// Нужно разетку С адаптировать под Ф (из Украины в Америку).
+class SocketC {
+  rechargePhoneC(): void {
+    console.log("Your phone was recharged with C-soket");
   }
 }
 
-class AdapteeNum {
-  getNum(): number {
-    return 12345;
+class SoketF {
+  rechargePhoneF(): void {
+    console.log("Your phone was recharged with F-soket");
   }
 }
 
-class Adapter extends TargetString {
-  private adaptee: AdapteeNum;
-
-  constructor(adaptee: AdapteeNum) {
+class SocketCAdapter extends SoketF {
+  public soketC: SocketC;
+  constructor(soketC) {
     super();
-    this.adaptee = adaptee;
+    this.soketC = soketC;
   }
 
-  getConvertedString() {
-    const result = `${this.adaptee.getNum().toString()} and some other symbols`;
-    return result;
-  }
-}
-
-class ImportantClass {
-  adaptee1 = new Adapter(new AdapteeNum()).getConvertedString();
-
-  importantMethod() {
-    return this.adaptee1;
+  rechargePhoneF(): void {
+    console.log(`${this.soketC.rechargePhoneC()} thanks to SoketC Adapter`);
   }
 }
 
-const impClass = new ImportantClass().importantMethod();
+const soketC = new SocketC();
 
-console.log(impClass);
+const soketF = new SoketF();
+
+const soketCAdapter = new SocketCAdapter(new SocketC());
+
+console.log(soketC.rechargePhoneC());
+console.log(soketF.rechargePhoneF());
+console.log(soketCAdapter.rechargePhoneF());
 
 // Адаптер — это структурный паттерн проектирования, который позволяет объектам с несовместимыми интерфейсами работать вместе.
 
