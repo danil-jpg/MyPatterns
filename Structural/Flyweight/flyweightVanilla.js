@@ -1,28 +1,105 @@
-class Tree {
-	constructor(type) {
-	  this.type = type;
+// Легковес — это структурный паттерн, который экономит память, благодаря разделению общего состояния,
+//  вынесенного в один объект, между множеством объектов.
+
+// class ToySoldier {
+//   private color: string;
+//   private position: string;
+//   private price: number;
+
+//   constructor(color, position, price ) {
+//     this.color = color;
+//     this.position = position;
+//     this.price = price;
+//   }
+// }
+
+// // Нужно создать 100 солдатиков
+
+// let toySoldiersPack: any = [];
+// for (let i = 0; i < 100; i++) {
+//   let res: number = i % 2;
+//   let soldier: any;
+//   if (res === 0) {
+//     let soldier = new ToySoldier("Red", "Attacking", 0.7);
+//     toySoldiersPack.push(soldier);
+//   } else {
+//     let soldier = new ToySoldier("Green", "Defending", 0.5);
+//     toySoldiersPack.push(soldier);
+//   }
+// }
+
+// console.log(toySoldiersPack);
+
+// У такого подхода есть проблема,а именно то,что все свойства повторяются
+
+class ToySoldierFlyweight {
+
+  
+	constructor(color, position, price) {
+	  this.color = color;
+	  this.position = position;
+	  this.price = price;
 	}
   }
   
-  class TreeFactory {
+  // Внутренее состояние
+  
+  class ToySoldier {
+
+  
+	constructor(toySoliderShared, sn) {
+	  this.color = toySoliderShared.color;
+	  this.position = toySoliderShared.position;
+	  this.price = toySoliderShared.price;
+	  this.sn = sn;
+	}
+  }
+  
+  // Внешнее состояние
+  
+  class ToySoldierFlyweightFactory {
+  
 	constructor() {
-	  this.models = {};
+	  this.collection = {};
 	}
   
-	create(name) {
-	  let model = this.models[name];
-	  if (model) {
-		return model;
+	createRed(color) {
+	  let collection = this.collection[color];
+	  if (collection) {
+		return collection;
 	  } else {
-		this.models[name] = new Tree(name);
-		return this.models[name];
+		this.collection[color] = new ToySoldierFlyweight("Red", "Attacking", 0.7);
+		return this.collection[color];
+	  }
+	}
+  
+	createGreen(color) {
+	  let collection = this.collection[color];
+	  if (collection) {
+		return collection;
+	  } else {
+		this.collection[color] = new ToySoldierFlyweight("Green", "Defending", 0.5);
+		return this.collection[color];
 	  }
 	}
   }
   
-  const treeFac = new TreeFactory();
+  // Внутренее состояние
   
-  const oak = treeFac.create("Oak");
-  const birch = treeFac.create("Birch");
-  const oldOak = treeFac.create("Oak");
+  let toySoldiersPack = [];
+  let soldierFactory = new ToySoldierFlyweightFactory();
+  
+  for (let i = 0; i < 100; i++) {
+	let res= i % 2;
+	let soldier;
+	if (res === 0) {
+	  let soldier = new ToySoldier(soldierFactory.createRed("Red"), i);
+	  toySoldiersPack.push(soldier);
+	} else {
+	  let soldier = new ToySoldier(soldierFactory.createGreen("Green"), i);
+	  toySoldiersPack.push(soldier);
+	}
+  }
+  
+  console.log(toySoldiersPack);
   

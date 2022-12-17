@@ -1,30 +1,41 @@
-class TargetString {
-	getString()  {
-	  return "12345";
+// Розетки типа С - Европейские (используются в Украине),розетки типа Ф - используются в Америке.
+// Нужно разетку С адаптировать под Ф (из Украины в Америку).
+class SocketC {
+	rechargePhoneC()  {
+	  console.log("Your phone was recharged with C-soket");
 	}
   }
   
-  class AdapteeNum {
-	getNum()  {
-	  return 12345;
+  class SoketF {
+	rechargePhoneF()  {
+	  console.log("Your phone was recharged with F-soket");
 	}
   }
   
-  class Adapter extends TargetString {
-	 #adaptee
-  
-	constructor(adaptee ) {
+  class SocketCAdapter extends SoketF {
+	constructor(soketC) {
 	  super();
-	  this.adaptee = adaptee;
+	  this.soketC = soketC;
 	}
   
-	getNum() {
-	  const result = `${this.adaptee.getNum().toString()} and some other symbols`;
-	  return `${result}`;
+	rechargePhoneF()  {
+	  console.log(`${this.soketC.rechargePhoneC()} thanks to SoketC Adapter`);
 	}
   }
   
-  const adaptee1 = new Adapter(new AdapteeNum());
+  const soketC = new SocketC();
   
-  console.log(adaptee1.getNum());
+  const soketF = new SoketF();
+  
+  const soketCAdapter = new SocketCAdapter(new SocketC());
+  
+  console.log(soketC.rechargePhoneC());
+  console.log(soketF.rechargePhoneF());
+  console.log(soketCAdapter.rechargePhoneF());
+  
+  // Адаптер — это структурный паттерн проектирования, который позволяет объектам с несовместимыми интерфейсами работать вместе.
+  
+  // Вопросы: так с чем в итоге нужно работать,с самим адаптером или целевым классом ,или дальше по цепочке.
+  
+  // Можно ли наследовать адаптер или же просто возвращать значение с адаптера (поля,метода)
   
