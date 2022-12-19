@@ -5,7 +5,6 @@
  class Car {
 	constructor(price,name,amountOfWheels) {
 	}
-	
 
 	numOfWheels()  {
 	  return this.amountOfWheels;

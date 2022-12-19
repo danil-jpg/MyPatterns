@@ -2,62 +2,113 @@
 //  * достаточно сложны и требуют обширной конфигурации.
 var TankBuilder = /** @class */ (function () {
     function TankBuilder() {
+        this.tankType = new T72();
     }
     TankBuilder.prototype.setFrame = function (frame) {
-        this.frame = frame;
-        return this;
+        this.tankType.frame = frame;
     };
     TankBuilder.prototype.setTower = function (tower) {
-        this.tower = tower;
-        return this;
+        this.tankType.tower = tower;
     };
     TankBuilder.prototype.setCanon = function (canon) {
-        this.canon = canon;
-        return this;
+        this.tankType.canon = canon;
+    };
+    TankBuilder.prototype.setExportVersion = function (frame, tower, canon) {
+        this.tankType.frame = frame + "M";
+        this.tankType.tower = tower + "M";
+        this.tankType.canon = canon + "M";
     };
     TankBuilder.prototype.getResault = function () {
-        return this;
+        return this.tankType;
     };
     return TankBuilder;
 }());
+var T72 = /** @class */ (function () {
+    function T72() {
+        this.engine = "diesel engine";
+        this.tracks = "Default tracks";
+    }
+    T72.prototype.testEngine = function () {
+        var digit = Math.round(Math.random() * 10);
+        var res;
+        if (digit > 6) {
+            res = true;
+        }
+        else {
+            res = false;
+        }
+        return res;
+    };
+    return T72;
+}());
 var ManualTankBuilder = /** @class */ (function () {
     function ManualTankBuilder() {
+        this.tankType = new ManualForT72();
     }
     ManualTankBuilder.prototype.setFrame = function (frame) {
-        this.frame = frame;
-        return this;
+        this.tankType.frame = frame;
     };
     ManualTankBuilder.prototype.setTower = function (tower) {
-        this.tower = tower;
-        return this;
+        this.tankType.tower = tower;
     };
     ManualTankBuilder.prototype.setCanon = function (canon) {
-        this.canon = canon;
-        return this;
+        this.tankType.canon = canon;
+    };
+    ManualTankBuilder.prototype.setExportVersion = function (frame, tower, canon) {
+        this.tankType.frame = frame + "M";
+        this.tankType.tower = tower + "M";
+        this.tankType.canon = canon + "M";
     };
     ManualTankBuilder.prototype.getResault = function () {
-        return this;
+        return this.tankType;
     };
     return ManualTankBuilder;
 }());
-var T72 = /** @class */ (function () {
-    function T72() {
-    }
-    return T72;
-}());
 var ManualForT72 = /** @class */ (function () {
     function ManualForT72() {
+        this.author = "author1";
+        this.year = 1973;
     }
+    ManualForT72.prototype.testAuthor = function () {
+        var digit = Math.round(Math.random() * 10);
+        var res;
+        if (digit > 6) {
+            res = true;
+        }
+        else {
+            res = false;
+        }
+        return res;
+    };
     return ManualForT72;
 }());
-var t72Def = new TankBuilder().setFrame("Defaul frame").setTower("T64 Tower").setCanon("T72 canon").getResault();
-console.table(t72Def);
-var t72ManualDef = new TankBuilder().setFrame("There is a def frame").setTower("There is a t64 tower").setCanon("There is a def T72 canon").getResault();
-console.table(t72ManualDef);
-var t72M = new TankBuilder().setFrame("modification frame ").setTower("T64 Tower modification").setCanon("T72 canon modification").getResault();
-console.table(t72M);
-var t72ManualM = new TankBuilder().setFrame("There is a modification  frame").setTower("There is a modification t64 tower").setCanon("There is a modification T72 canon").getResault();
-console.table(t72ManualM);
+function makeT72() {
+    var t72DefBuilder = new TankBuilder();
+    t72DefBuilder.setFrame("Default frame");
+    t72DefBuilder.setCanon("Default Canon");
+    t72DefBuilder.setTower("Default tower");
+    var t72Def = t72DefBuilder.getResault();
+    console.table(t72Def);
+    var t72MBuilder = new TankBuilder();
+    t72MBuilder.setFrame("modified frame");
+    t72MBuilder.setCanon("modified Canon");
+    t72MBuilder.setTower("modified tower");
+    var t72M = t72MBuilder.getResault();
+    console.table(t72M);
+    var t72DefManualBuilder = new ManualTankBuilder();
+    t72DefManualBuilder.setFrame("This is a def frame");
+    t72DefManualBuilder.setCanon("This is a def Canon");
+    t72DefManualBuilder.setTower("This is a def tower");
+    var t72ManualDef = t72DefManualBuilder.getResault();
+    console.table(t72ManualDef);
+    var t72ModBuilder = new ManualTankBuilder();
+    t72ModBuilder.setFrame("This is a modified frame");
+    t72ModBuilder.setCanon("This is a modified Canon");
+    t72ModBuilder.setTower("This is a modified tower");
+    var t72ManualM = t72ModBuilder.getResault();
+    console.table(t72ManualM);
+}
+makeT72();
 // interface TankBuilderInterface {
 //   frameType: string;
 //   tankType: string;

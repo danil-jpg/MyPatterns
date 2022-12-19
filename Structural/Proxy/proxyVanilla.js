@@ -4,10 +4,8 @@
 
 class Database {
 	getReq(){
-		
 	}
 	setReq(){
-
 	}
 }
   

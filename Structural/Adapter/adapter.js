@@ -15,21 +15,21 @@ var __extends = (this && this.__extends) || (function () {
 })();
 // Розетки типа С - Европейские (используются в Украине),розетки типа Ф - используются в Америке.
 // Нужно разетку С адаптировать под Ф (из Украины в Америку).
-var SocketC = /** @class */ (function () {
-    function SocketC() {
+var RechargerC = /** @class */ (function () {
+    function RechargerC() {
     }
-    SocketC.prototype.rechargePhoneC = function () {
+    RechargerC.prototype.rechargePhoneC = function () {
         console.log("Your phone was recharged with C-soket");
     };
-    return SocketC;
+    return RechargerC;
 }());
-var SoketF = /** @class */ (function () {
-    function SoketF() {
+var RechargerF = /** @class */ (function () {
+    function RechargerF() {
     }
-    SoketF.prototype.rechargePhoneF = function () {
+    RechargerF.prototype.rechargePhoneF = function () {
         console.log("Your phone was recharged with F-soket");
     };
-    return SoketF;
+    return RechargerF;
 }());
 var SocketCAdapter = /** @class */ (function (_super) {
     __extends(SocketCAdapter, _super);
@@ -39,13 +39,13 @@ var SocketCAdapter = /** @class */ (function (_super) {
         return _this;
     }
     SocketCAdapter.prototype.rechargePhoneF = function () {
-        console.log("".concat(this.soketC.rechargePhoneC(), " thanks to SoketC Adapter"));
+        console.log("".concat(this.soketC.rechargePhoneC(), " thanks to RechargerC Adapter"));
     };
     return SocketCAdapter;
-}(SoketF));
-var soketC = new SocketC();
-var soketF = new SoketF();
-var soketCAdapter = new SocketCAdapter(new SocketC());
+}(RechargerF));
+var soketC = new RechargerC();
+var soketF = new RechargerF();
+var soketCAdapter = new SocketCAdapter(new RechargerC());
 console.log(soketC.rechargePhoneC());
 console.log(soketF.rechargePhoneF());
 console.log(soketCAdapter.rechargePhoneF());

@@ -38,7 +38,7 @@ class Upgrade extends Car {
     this.ConcreteCar = ConcreteCar;
   }
 
-  upgrade(): string {}
+  upgrade() {}
 }
 
 class UpdateEngine extends Upgrade {

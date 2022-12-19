@@ -1,85 +1,145 @@
 //  * Имеет смысл использовать паттерн Строитель только тогда, когда ваши продукты
 //  * достаточно сложны и требуют обширной конфигурации.
 
-class Tank {
-    constructor(){
-    }
-    setFrame(){
 
-    };
-    setTower(){
+  
+  class TankBuilder   {
 
-    };
-    setCanon(){
-    };
+  
+	constructor() {
+	  this.tankType = new T72();
+	}
+  
+	setFrame(frame){
+	  this.tankType.frame = frame;
+	}
+  
+	setTower(tower) {
+	  this.tankType.tower = tower;
+	}
+  
+	setCanon(canon) {
+	  this.tankType.canon = canon;
+	}
+  
+	setExportVersion(frame, tower, canon) {
+	  this.tankType.frame = frame + "M";
+	  this.tankType.tower = tower + "M";
+	  this.tankType.canon = canon + "M";
+	}
+  
+	getResault(){
+	  return this.tankType;
+	}
   }
   
-  class TankBuilder extends Tank {
+  class T72 {
+	
   
-    constructor() {
-        super()
-
-    }
-    setFrame(frame) {
-      this.frame = frame;
-      return this;
-    }
+	constructor() {
+	  this.engine = "diesel engine";
+	  this.tracks = "Default tracks";
+	}
   
-    setTower(tower) {
-      this.tower = tower;
-      return this;
-    }
+	testEngine() {
+	  const digit = Math.round(Math.random() * 10);
+	  let res ;
   
-    setCanon(canon) {
-      this.canon = canon;
-      return this;
-    }
+	  if (digit > 6) {
+		res = true;
+	  } else {
+		res = false;
+	  }
   
-    getResault() {
-      return this;
-    }
+	  return res;
+	}
   }
   
-  class ManualTankBuilder extends Tank {
-    constructor() {
-        super()
+  class ManualTankBuilder   {
 
-    }
-    setFrame(frame) {
-      this.frame = frame;
-      return this;
-    }
   
-    setTower(tower) {
-      this.tower = tower;
-      return this;
-    }
+	constructor() {
+	  this.tankType = new ManualForT72();
+	}
+	setFrame(frame)   {
+	  this.tankType.frame = frame;
+	}
   
-    setCanon(canon) {
-      this.canon = canon;
-      return this;
-    }
+	setTower(tower)   {
+	  this.tankType.tower = tower;
+	}
   
-    getResault()  {
-      return this;
-    }
+	setCanon(canon)   {
+	  this.tankType.canon = canon;
+	}
+  
+	setExportVersion(frame, tower, canon)   {
+	  this.tankType.frame = frame + "M";
+	  this.tankType.tower = tower + "M";
+	  this.tankType.canon = canon + "M";
+	}
+  
+	getResault() {
+	  return this.tankType;
+	}
   }
   
-  class T72 {}
+  class ManualForT72 {
+	  author   ;
+	  year    ;
   
-  class ManualForT72 {}
+	  frame   ;
+	  tower   ;
+	  canon   ;
   
-  const t72Def = new TankBuilder().setFrame("Defaul frame").setTower("T64 Tower").setCanon("T72 canon").getResault();
-  console.table(t72Def);
+	constructor() {
+	  this.author = "author1";
+	  this.year = 1973;
+	}
   
-  const t72ManualDef = new TankBuilder().setFrame("There is a def frame").setTower("There is a t64 tower").setCanon("There is a def T72 canon").getResault();
-  console.table(t72ManualDef);
+	testAuthor() {
+	  const digit     = Math.round(Math.random() * 10);
+	  let res;
   
-  const t72M = new TankBuilder().setFrame("modification frame ").setTower("T64 Tower modification").setCanon("T72 canon modification").getResault();
-  console.table(t72M);
+	  if (digit > 6) {
+		res = true;
+	  } else {
+		res = false;
+	  }
   
-  const t72ManualM = new TankBuilder().setFrame("There is a modification  frame").setTower("There is a modification t64 tower").setCanon("There is a modification T72 canon").getResault();
-  console.table(t72ManualM);
+	  return res;
+	}
+  }
   
-
+  function makeT72()   {
+	const t72DefBuilder = new TankBuilder();
+	t72DefBuilder.setFrame("Default frame");
+	t72DefBuilder.setCanon("Default Canon");
+	t72DefBuilder.setTower("Default tower");
+	const t72Def = t72DefBuilder.getResault();
+	console.table(t72Def);
+  
+	const t72MBuilder = new TankBuilder();
+	t72MBuilder.setFrame("modified frame");
+	t72MBuilder.setCanon("modified Canon");
+	t72MBuilder.setTower("modified tower");
+	const t72M = t72MBuilder.getResault();
+	console.table(t72M);
+  
+	const t72DefManualBuilder = new ManualTankBuilder();
+	t72DefManualBuilder.setFrame("This is a def frame");
+	t72DefManualBuilder.setCanon("This is a def Canon");
+	t72DefManualBuilder.setTower("This is a def tower");
+	const t72ManualDef = t72DefManualBuilder.getResault();
+	console.table(t72ManualDef);
+  
+	const t72ModBuilder = new ManualTankBuilder();
+	t72ModBuilder.setFrame("This is a modified frame");
+	t72ModBuilder.setCanon("This is a modified Canon");
+	t72ModBuilder.setTower("This is a modified tower");
+	const t72ManualM = t72ModBuilder.getResault();
+	console.table(t72ManualM);
+  }
+  
+  makeT72();
   

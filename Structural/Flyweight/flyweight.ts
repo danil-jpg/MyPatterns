@@ -70,7 +70,7 @@ class ToySoldierFlyweightFactory {
     this.collection = {};
   }
 
-  createRed(color): ToySoldierFlyweight {
+  createRed(color: string): ToySoldierFlyweight {
     let collection = this.collection[color];
     if (collection) {
       return collection;
@@ -80,7 +80,7 @@ class ToySoldierFlyweightFactory {
     }
   }
 
-  createGreen(color): ToySoldierFlyweight {
+  createGreen(color: string): ToySoldierFlyweight {
     let collection = this.collection[color];
     if (collection) {
       return collection;

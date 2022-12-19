@@ -9,7 +9,7 @@ interface Database {
 
 class ConcreteDatabase implements Database {
   getReq() {
-    console.log("Got some data");
+    console.log("Get some data");
   }
   setReq() {
     console.log("Set some data");

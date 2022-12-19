@@ -10,8 +10,9 @@ class Car {
 // Класс машина - абстракция
 
 class ConcreteCar extends Car {
+  public color;
   constructor(color) {
-    super(color);
+    super();
   }
 
   paint() {
