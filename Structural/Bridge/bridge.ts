@@ -1,22 +1,21 @@
 // Мост — это структурный паттерн проектирования, который разделяет один или несколько классов на две отдельные иерархии — абстракцию и реализацию, позволяя изменять их независимо друг от друга.
 
 class Car {
-  public color;
+  public color: Color;
 
   constructor(color) {
     this.color = color;
+  }
+
+  paint(): string {
+    return `This is a ${this.color.getColor()} car`;
   }
 }
 // Класс машина - абстракция
 
 class ConcreteCar extends Car {
-  public color;
   constructor(color) {
-    super();
-  }
-
-  paint() {
-    return `This is a ${this.color.getColor()} car`;
+    super(color);
   }
 }
 // Это расширеная абстракция или нет?
@@ -33,7 +32,7 @@ class BlackColor implements Color {
   constructor() {
     this.color = "Black";
   }
-  getColor() {
+  getColor(): string {
     return this.color;
   }
 }
@@ -43,7 +42,7 @@ class RedColor implements Color {
   constructor() {
     this.color = "Red";
   }
-  getColor() {
+  getColor(): string {
     return this.color;
   }
 }

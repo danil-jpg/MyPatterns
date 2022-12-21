@@ -1,3 +1,4 @@
+// Компоновщик — это структурный паттерн проектирования, который позволяет сгруппировать множество объектов в древовидную структуру, а затем работать с ней так, как будто это единичный объект.
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -13,52 +14,81 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Component = /** @class */ (function () {
-    function Component() {
+// General - Major - officer - soldier
+var CommonClass = /** @class */ (function () {
+    function CommonClass() {
     }
-    Component.prototype.getPrice = function () {
-        return this.price || 0;
+    // Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined:
+    CommonClass.prototype.setParent = function (parent) {
+        this.parent = parent;
     };
-    Component.prototype.getName = function () {
-        return this.name;
+    CommonClass.prototype.getParent = function () {
+        return this.parent;
     };
-    return Component;
+    CommonClass.prototype.doesHaveAttachedSoldiers = function () {
+        return false;
+    };
+    CommonClass.prototype.addSoldier = function (soldier) { };
+    return CommonClass;
 }());
-var Item1 = /** @class */ (function (_super) {
-    __extends(Item1, _super);
-    function Item1() {
-        var _this = _super.call(this) || this;
-        _this.price = 24;
+var Officer = /** @class */ (function (_super) {
+    __extends(Officer, _super);
+    function Officer() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.soldierClass = [];
         return _this;
     }
-    return Item1;
-}(Component));
-var Item2 = /** @class */ (function (_super) {
-    __extends(Item2, _super);
-    function Item2() {
-        var _this = _super.call(this) || this;
-        _this.price = 22;
-        return _this;
-    }
-    return Item2;
-}(Component));
-var Box = /** @class */ (function (_super) {
-    __extends(Box, _super);
-    function Box() {
-        var _this = _super.call(this) || this;
-        _this.items = [];
-        return _this;
-    }
-    Box.prototype.add = function (item) {
-        // this.items.push(item);
-        console.log(this.items);
+    Officer.prototype.addSoldier = function (soldier) {
+        this.soldierClass.push(soldier);
+        soldier.setParent(this);
     };
-    Box.prototype.getPrice = function () {
-        return this.items.map(function (equipment) { return equipment.getPrice(); }).reduce(function (a, b) { return a + b; });
+    Officer.prototype.doesHaveAttachedSoldiers = function () {
+        if (this.soldierClass[0]) {
+            return true;
+        }
+        else {
+            return false;
+        }
     };
-    return Box;
-}(Component));
-var box = new Box();
-box.add(new Item1());
-console.log(box.add(new Item2()));
-// console.log(new Item2().price);
+    Officer.prototype.getStatus = function () {
+        var res = [];
+        for (var key in this.soldierClass) {
+            res.push(this.soldierClass[key].getStatus());
+        }
+        return res;
+    };
+    return Officer;
+}(CommonClass));
+var PrivateSoldier = /** @class */ (function (_super) {
+    __extends(PrivateSoldier, _super);
+    function PrivateSoldier() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    PrivateSoldier.prototype.getStatus = function () {
+        var random = Math.round(Math.random() * 10);
+        var numOfSoldier = Math.round(Math.random() * 10);
+        var order;
+        if (random * numOfSoldier > 15) {
+            order = "This order was completed successfully";
+        }
+        else {
+            order = "This order was failed";
+        }
+        var res = { numOfSoldier: numOfSoldier, order: order };
+        return res;
+    };
+    return PrivateSoldier;
+}(CommonClass));
+var general = new Officer();
+var officerEmpty = new Officer();
+var officerAttached = new Officer();
+var private1 = new PrivateSoldier();
+var private2 = new PrivateSoldier();
+var private3 = new PrivateSoldier();
+officerAttached.addSoldier(private1);
+officerAttached.addSoldier(private2);
+officerAttached.addSoldier(private3);
+general.addSoldier(officerEmpty);
+general.addSoldier(officerAttached);
+console.log(general.getStatus());
+// console.log(new PrivateSoldier().getStatus());

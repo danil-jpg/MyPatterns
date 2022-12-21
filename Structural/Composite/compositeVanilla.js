@@ -1,54 +1,88 @@
-//  P.s - структура древовидная,этим все сказано.
- 
- class Component {
-	//  price ;
-	//  name;
+// Компоновщик — это структурный паттерн проектирования, который позволяет сгруппировать множество объектов в древовидную структуру, а затем работать с ней так, как будто это единичный объект.
+
+// General - Major - officer - soldier
+ class CommonClass {
+	// Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined:
+
   
-	getPrice() {
-	  return this.price || 0;
+	  setParent(parent)  {
+	  this.parent = parent;
 	}
   
-	getName()  {
-	  return this.name;
+	  getParent() {
+	  return this.parent;
 	}
   
+	  doesHaveAttachedSoldiers() {
+	  return false;
+	}
+  
+	  addSoldier(soldier)  {}
+  
+	   getStatus(){}
   }
   
-  class Item1 extends Component {
-	constructor() {
-	  super();
-	  this.price = 24;
+  class Officer extends CommonClass {
+	constructor(){
+		super()
+		this.soldierClass = []
+	}
+	  addSoldier(soldier)  {
+	  this.soldierClass.push(soldier);
+	  soldier.setParent(this);
+	}
+  
+	  doesHaveAttachedSoldiers() {
+	  if (this.soldierClass[0]) {
+		return true;
+	  } else {
+		return false;
+	  }
+	}
+  
+	getStatus() {
+	  let res = [];
+	  for (let key in this.soldierClass) {
+		res.push(this.soldierClass[key].getStatus());
+	  }
+  
+	  return res;
 	}
   }
   
-  class Item2 extends Component {
-	constructor() {
-	  super();
-	  this.price = 22;
+  class PrivateSoldier extends CommonClass {
+	  getStatus() {
+	  const random  = Math.round(Math.random() * 10);
+	  const numOfSoldier  = Math.round(Math.random() * 10);
+	  let order ;
+  
+	  if (random * numOfSoldier > 15) {
+		order = "This order was completed successfully";
+	  } else {
+		order = "This order was failed";
+	  }
+  
+	  const res = { numOfSoldier, order };
+  
+	  return res;
 	}
   }
   
-  class Box extends Component {
-	constructor() {
-	  super();
-	  this.items = [];
-	}
+  const general = new Officer();
+  const officerEmpty = new Officer();
+  const officerAttached = new Officer();
   
-	add(item ) {
-	  this.items.push(item);
-	//   console.log(this.items);
-	}
+  const private1 = new PrivateSoldier();
+  const private2 = new PrivateSoldier();
+  const private3 = new PrivateSoldier();
   
-	getPrice() {
-	  return this.items.map((equipment) => equipment.getPrice()).reduce((a, b) => a + b);
-	}
-  }
+  officerAttached.addSoldier(private1);
+  officerAttached.addSoldier(private2);
+  officerAttached.addSoldier(private3);
+  general.addSoldier(officerEmpty);
+  general.addSoldier(officerAttached);
   
-  const box = new Box();
+  console.log(general.getStatus());
   
-  box.add(new Item1());
-  
-  console.log(box.getPrice());
-  
-  // console.log(new Item2().price);
+  // console.log(new PrivateSoldier().getStatus());
   

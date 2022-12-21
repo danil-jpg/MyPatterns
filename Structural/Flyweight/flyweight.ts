@@ -1,37 +1,6 @@
 // Легковес — это структурный паттерн, который экономит память, благодаря разделению общего состояния,
 //  вынесенного в один объект, между множеством объектов.
 
-// class ToySoldier {
-//   private color: string;
-//   private position: string;
-//   private price: number;
-
-//   constructor(color, position, price ) {
-//     this.color = color;
-//     this.position = position;
-//     this.price = price;
-//   }
-// }
-
-// // Нужно создать 100 солдатиков
-
-// let toySoldiersPack: any = [];
-// for (let i = 0; i < 100; i++) {
-//   let res: number = i % 2;
-//   let soldier: any;
-//   if (res === 0) {
-//     let soldier = new ToySoldier("Red", "Attacking", 0.7);
-//     toySoldiersPack.push(soldier);
-//   } else {
-//     let soldier = new ToySoldier("Green", "Defending", 0.5);
-//     toySoldiersPack.push(soldier);
-//   }
-// }
-
-// console.log(toySoldiersPack);
-
-// У такого подхода есть проблема,а именно то,что все свойства повторяются
-
 class ToySoldierFlyweight {
   private color: string;
   private position: string;
@@ -54,6 +23,7 @@ class ToySoldier {
   private price: number;
 
   constructor(toySolderShared, sn) {
+    this.toySolderShared = toySolderShared;
     this.color = toySolderShared.color;
     this.position = toySolderShared.position;
     this.price = toySolderShared.price;
@@ -93,12 +63,12 @@ class ToySoldierFlyweightFactory {
 
 // Внутренее состояние
 
-let toySoldiersPack: any = [];
+let toySoldiersPack: ToySoldier[] = [];
 let soldierFactory = new ToySoldierFlyweightFactory();
 
 for (let i = 0; i < 100; i++) {
   let res: number = i % 2;
-  let soldier: any;
+  let soldier: ToySoldier;
   if (res === 0) {
     let soldier = new ToySoldier(soldierFactory.createRed("Red"), i);
     toySoldiersPack.push(soldier);

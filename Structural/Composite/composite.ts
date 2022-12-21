@@ -1,51 +1,86 @@
 // Компоновщик — это структурный паттерн проектирования, который позволяет сгруппировать множество объектов в древовидную структуру, а затем работать с ней так, как будто это единичный объект.
 
-abstract class Component {
-  public price: number;
-  public name: string;
+// General - Major - officer - soldier
+abstract class CommonClass {
+  protected parent!: CommonClass;
+  // Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined:
+  // Так и не понял зачем ! нужно сдесь
 
-  getPrice(): number {
-    return this.price || 0;
+  public setParent(parent: CommonClass): void {
+    this.parent = parent;
   }
 
-  getName(): string {
-    return this.name;
+  public getParent(): CommonClass {
+    return this.parent;
+  }
+
+  public doesHaveAttachedSoldiers(): boolean {
+    return false;
+  }
+
+  public addSoldier(soldier): void {}
+
+  public abstract getStatus();
+}
+
+class Officer extends CommonClass {
+  protected soldierClass: PrivateSoldier[] = [];
+
+  public addSoldier(soldier: PrivateSoldier): void {
+    this.soldierClass.push(soldier);
+    soldier.setParent(this);
+  }
+
+  public doesHaveAttachedSoldiers(): boolean {
+    if (this.soldierClass[0]) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  getStatus() {
+    let res: object[] = [];
+    for (let key in this.soldierClass) {
+      res.push(this.soldierClass[key].getStatus());
+    }
+
+    return res;
   }
 }
 
-class Item1 extends Component {
-  constructor() {
-    super();
-    this.price = 24;
+class PrivateSoldier extends CommonClass {
+  public getStatus(): object {
+    const random: number = Math.round(Math.random() * 10);
+    const numOfSoldier: number = Math.round(Math.random() * 10);
+    let order: string;
+
+    if (random * numOfSoldier > 15) {
+      order = "This order was completed successfully";
+    } else {
+      order = "This order was failed";
+    }
+
+    const res: object = { numOfSoldier, order };
+
+    return res;
   }
 }
 
-class Item2 extends Component {
-  constructor() {
-    super();
-    this.price = 22;
-  }
-}
+const general = new Officer();
+const officerEmpty = new Officer();
+const officerAttached = new Officer();
 
-class Box extends Component {
-  public items;
-  constructor() {
-    super();
-    this.items = [];
-  }
+const private1 = new PrivateSoldier();
+const private2 = new PrivateSoldier();
+const private3 = new PrivateSoldier();
 
-  add(item: Component) {
-    this.items.push(item);
-    // console.log(this.items);
-  }
+officerAttached.addSoldier(private1);
+officerAttached.addSoldier(private2);
+officerAttached.addSoldier(private3);
+general.addSoldier(officerEmpty);
+general.addSoldier(officerAttached);
 
-  getPrice() {
-    return this.items.map((equipment) => equipment.getPrice()).reduce((a, b) => a + b);
-  }
-}
+console.log(general.getStatus());
 
-const box = new Box();
-
-box.add(new Item1());
-
-console.log(box.getPrice());
+// console.log(new PrivateSoldier().getStatus());
