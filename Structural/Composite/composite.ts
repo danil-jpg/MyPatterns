@@ -2,16 +2,16 @@
 
 // General - Major - officer - soldier
 abstract class CommonClass {
-  protected parent!: CommonClass;
+  protected obeyedHuman!: CommonClass | null;
   // Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined:
   // Так и не понял зачем ! нужно сдесь
 
   public setParent(parent: CommonClass): void {
-    this.parent = parent;
+    this.obeyedHuman = parent;
   }
 
   public getParent(): CommonClass {
-    return this.parent;
+    return this.obeyedHuman!;
   }
 
   public doesHaveAttachedSoldiers(): boolean {
@@ -24,9 +24,9 @@ abstract class CommonClass {
 }
 
 class Officer extends CommonClass {
-  protected soldierClass: PrivateSoldier[] = [];
+  protected soldierClass: ObeyedSoldier[] = [];
 
-  public addSoldier(soldier: PrivateSoldier): void {
+  public addSoldier(soldier: ObeyedSoldier): void {
     this.soldierClass.push(soldier);
     soldier.setParent(this);
   }
@@ -49,7 +49,7 @@ class Officer extends CommonClass {
   }
 }
 
-class PrivateSoldier extends CommonClass {
+class ObeyedSoldier extends CommonClass {
   public getStatus(): object {
     const random: number = Math.round(Math.random() * 10);
     const numOfSoldier: number = Math.round(Math.random() * 10);
@@ -71,9 +71,9 @@ const general = new Officer();
 const officerEmpty = new Officer();
 const officerAttached = new Officer();
 
-const private1 = new PrivateSoldier();
-const private2 = new PrivateSoldier();
-const private3 = new PrivateSoldier();
+const private1 = new ObeyedSoldier();
+const private2 = new ObeyedSoldier();
+const private3 = new ObeyedSoldier();
 
 officerAttached.addSoldier(private1);
 officerAttached.addSoldier(private2);

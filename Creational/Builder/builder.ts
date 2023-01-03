@@ -6,16 +6,16 @@ interface Tank {
   frame: string;
   tower: string;
   canon: string;
-  setFrame(frame): void;
+  setFrame(frame: string): void;
   setTower(tower): void;
   setCanon(canon): void;
   setExportVersion(frame, tower, canon): void;
 }
 
 class TankBuilder implements Tank {
-  public frame: string;
-  public tower: string;
-  public canon: string;
+  public frame: string = "";
+  public tower: string = "";
+  public canon: string = "";
 
   public tankType: T72;
 
@@ -50,9 +50,9 @@ class T72 {
   public engine: string;
   public tracks: string;
 
-  public frame: string;
-  public tower: string;
-  public canon: string;
+  public frame: string = "";
+  public tower: string = "";
+  public canon: string = "";
 
   constructor() {
     this.engine = "diesel engine";
@@ -74,9 +74,9 @@ class T72 {
 }
 
 class ManualTankBuilder implements Tank {
-  public frame: string;
-  public tower: string;
-  public canon: string;
+  public frame: string = "";
+  public tower: string = "";
+  public canon: string = "";
 
   public tankType: ManualForT72;
 
@@ -110,9 +110,9 @@ class ManualForT72 {
   public author: string;
   public year: number;
 
-  public frame: string;
-  public tower: string;
-  public canon: string;
+  public frame: string = "";
+  public tower: string = "";
+  public canon: string = "";
 
   constructor() {
     this.author = "author1";
@@ -133,34 +133,34 @@ class ManualForT72 {
   }
 }
 
-function makeT72(): void {
-  const t72DefBuilder = new TankBuilder();
-  t72DefBuilder.setFrame("Default frame");
-  t72DefBuilder.setCanon("Default Canon");
-  t72DefBuilder.setTower("Default tower");
-  const t72Def = t72DefBuilder.getResault();
-  console.table(t72Def);
+// function makeT72(): void {
+const t72DefBuilder = new TankBuilder();
+t72DefBuilder.setFrame("Default frame");
+t72DefBuilder.setCanon("Default Canon");
+t72DefBuilder.setTower("Default tower");
+const t72Def = t72DefBuilder.getResault();
+console.table(t72Def);
 
-  const t72MBuilder = new TankBuilder();
-  t72MBuilder.setFrame("modified frame");
-  t72MBuilder.setCanon("modified Canon");
-  t72MBuilder.setTower("modified tower");
-  const t72M = t72MBuilder.getResault();
-  console.table(t72M);
+const t72MBuilder = new TankBuilder();
+t72MBuilder.setFrame("modified frame");
+t72MBuilder.setCanon("modified Canon");
+t72MBuilder.setTower("modified tower");
+const t72M = t72MBuilder.getResault();
+console.table(t72M);
 
-  const t72DefManualBuilder = new ManualTankBuilder();
-  t72DefManualBuilder.setFrame("This is a def frame");
-  t72DefManualBuilder.setCanon("This is a def Canon");
-  t72DefManualBuilder.setTower("This is a def tower");
-  const t72ManualDef = t72DefManualBuilder.getResault();
-  console.table(t72ManualDef);
+const t72DefManualBuilder = new ManualTankBuilder();
+t72DefManualBuilder.setFrame("This is a def frame");
+t72DefManualBuilder.setCanon("This is a def Canon");
+t72DefManualBuilder.setTower("This is a def tower");
+const t72ManualDef = t72DefManualBuilder.getResault();
+console.table(t72ManualDef);
 
-  const t72ModBuilder = new ManualTankBuilder();
-  t72ModBuilder.setFrame("This is a modified frame");
-  t72ModBuilder.setCanon("This is a modified Canon");
-  t72ModBuilder.setTower("This is a modified tower");
-  const t72ManualM = t72ModBuilder.getResault();
-  console.table(t72ManualM);
-}
+const t72ModBuilder = new ManualTankBuilder();
+t72ModBuilder.setFrame("This is a modified frame");
+t72ModBuilder.setCanon("This is a modified Canon");
+t72ModBuilder.setTower("This is a modified tower");
+const t72ManualM = t72ModBuilder.getResault();
+console.table(t72ManualM);
+// }
 
-makeT72();
+// makeT72();

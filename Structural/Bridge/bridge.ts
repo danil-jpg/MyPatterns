@@ -48,8 +48,8 @@ class RedColor implements Color {
 }
 
 // new BlackCar1,new RedCar1,new BrownCar1 etc
-
-console.log(new ConcreteCar(new BlackColor()).paint());
+const blackCar = new ConcreteCar(new BlackColor()).paint();
+console.log(blackCar);
 
 console.log(new ConcreteCar(new RedColor()).paint());
 

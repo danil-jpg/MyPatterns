@@ -2,8 +2,6 @@
 
 // General - Major - officer - soldier
  class CommonClass {
-	// Writing ! after any expression is effectively a type assertion that the value isn’t null or undefined:
-
   
 	  setParent(parent)  {
 	  this.parent = parent;
