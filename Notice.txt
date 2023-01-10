@@ -27,3 +27,4 @@
 protected soldierClass: PrivateSoldier[] = []; - исправить PrivateSoldier на класс Оффицера или что-то подобное
 
 Поведенчиские паттерны - начать
+

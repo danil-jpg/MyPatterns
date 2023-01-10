@@ -1,0 +1,31 @@
+<mxfile host="65bd71144e">
+    <diagram id="iidfaxd1uk1p2hSaVgpP" name="Page-1">
+        <mxGraphModel dx="2716" dy="485" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Вопрос 1 :&lt;br&gt;Как называется позиция,на которую мы претендуем&amp;nbsp;" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="190" width="330" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Вопрос 2 :&lt;br&gt;Финансовая сторона вопроса (размер оклада)&lt;br&gt;+ Как он вообще будет рассчитываться ?(Почасовая ставка/фиксированная)" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-350" y="230" width="440" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Вопрос 3 :&lt;br&gt;По идее главная страница у нас сверстана,получается нам нужно просто написать логику + небольшие доработки в верстке&lt;br&gt;к примеру профиль авторизированного пользователя" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="450" width="460" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Object" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-1080" y="320" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Вопрос&amp;nbsp; :&lt;br&gt;Это единоразовая подработка или нет?&lt;br&gt;Если да,то что после?&amp;nbsp;" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="100" width="330" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Вопрос&amp;nbsp; :&lt;br&gt;Тимворк и таблицы делать нужно?" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="420" width="330" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Вопрос :&amp;nbsp;&lt;br&gt;В какой формат оно все должно кампилиться?" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="190" width="460" height="130" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
