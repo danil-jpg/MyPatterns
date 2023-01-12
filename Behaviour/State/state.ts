@@ -5,7 +5,8 @@
 
 // Состояния гусеницы : яццо - гусеница - куколка - бабочка
 
-// Вопрос : необходим ли метод переключения на следущий класс (у меня он назван changeState)
+// Очень важным нюансом, отличающим этот паттерн от Стратегии, является то,
+//  что и контекст, и сами конкретные состояния могут знать друг о друге и инициировать переходы от одного состояния к другому.
 
 // Скорее всего с этим паттерном налажал,уж больно он напоминает стратегию.
 
@@ -45,6 +46,9 @@ class Egg implements IlifeState {
   doSomething(): string {
     return "You are an egg,you can do nothing with it";
   }
+  changeToNextState(): IlifeState {
+    return new Caterpillar();
+  }
 }
 
 class Caterpillar implements IlifeState {
@@ -58,6 +62,9 @@ class Caterpillar implements IlifeState {
   doSomething(): string {
     return "You can eat a leaf";
   }
+  changeToNextState(): IlifeState {
+    return new Pupa();
+  }
 }
 
 class Pupa implements IlifeState {
@@ -70,6 +77,9 @@ class Pupa implements IlifeState {
 
   doSomething(): string {
     return "You are a pupa,you can do nothing with it,again";
+  }
+  changeToNextState(): IlifeState {
+    return new Butterfly();
   }
 }
 
