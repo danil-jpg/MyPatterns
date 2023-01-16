@@ -1,14 +1,14 @@
-// Стратегия — это поведенческий паттерн проектирования, который определяет семейство схожих алгоритмов
-//  и помещает каждый из них в собственный класс, после чего алгоритмы можно взаимозаменять прямо во время исполнения программы.
+// Стратегия — это поведенческий паттерн,
+//  выносит набор алгоритмов в собственные классы и делает их взаимозаменимыми.
 
 class ContextCountClass {
-  protected strategy: Istratagy;
+  protected strategy: Istrategy;
 
-  constructor(strategy: Istratagy) {
+  constructor(strategy: Istrategy) {
     this.strategy = strategy;
   }
 
-  setStrategy(strategy: Istratagy): void {
+  setStrategy(strategy: Istrategy): void {
     this.strategy = strategy;
   }
 
@@ -18,7 +18,7 @@ class ContextCountClass {
   }
 }
 
-interface Istratagy {
+interface Istrategy {
   count(numArr: number[]): number[];
 }
 

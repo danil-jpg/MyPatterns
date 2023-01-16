@@ -49,6 +49,28 @@ class Egg implements IlifeState {
   changeToNextState(): IlifeState {
     return new Caterpillar();
   }
+  changeToRequiredState(number: number): IlifeState {
+    let res: IlifeState = new Egg();
+    switch (number) {
+      case 1:
+        res = new Egg();
+        break;
+
+      case 2:
+        res = new Caterpillar();
+        break;
+
+      case 3:
+        res = new Pupa();
+        break;
+
+      case 4:
+        res = new Butterfly();
+        break;
+    }
+
+    return res;
+  }
 }
 
 class Caterpillar implements IlifeState {
@@ -64,6 +86,28 @@ class Caterpillar implements IlifeState {
   }
   changeToNextState(): IlifeState {
     return new Pupa();
+  }
+  changeToRequiredState(number: number): IlifeState {
+    let res: IlifeState = new Egg();
+    switch (number) {
+      case 1:
+        res = new Egg();
+        break;
+
+      case 2:
+        res = new Caterpillar();
+        break;
+
+      case 3:
+        res = new Pupa();
+        break;
+
+      case 4:
+        res = new Butterfly();
+        break;
+    }
+
+    return res;
   }
 }
 
@@ -81,6 +125,28 @@ class Pupa implements IlifeState {
   changeToNextState(): IlifeState {
     return new Butterfly();
   }
+  changeToRequiredState(number: number): IlifeState {
+    let res: IlifeState = new Egg();
+    switch (number) {
+      case 1:
+        res = new Egg();
+        break;
+
+      case 2:
+        res = new Caterpillar();
+        break;
+
+      case 3:
+        res = new Pupa();
+        break;
+
+      case 4:
+        res = new Butterfly();
+        break;
+    }
+
+    return res;
+  }
 }
 
 class Butterfly implements IlifeState {
@@ -94,15 +160,43 @@ class Butterfly implements IlifeState {
   doSomething(): string {
     return "You are a butterfly,you can fly!";
   }
+  changeToRequiredState(number: number): IlifeState {
+    let res: IlifeState = new Egg();
+    switch (number) {
+      case 1:
+        res = new Egg();
+        break;
+
+      case 2:
+        res = new Caterpillar();
+        break;
+
+      case 3:
+        res = new Pupa();
+        break;
+
+      case 4:
+        res = new Butterfly();
+        break;
+    }
+
+    console.log(res);
+    return res;
+  }
 }
 
 const lifeLoop = new LifeLoop();
-const egg = new Egg();
-const caterpillar = new Caterpillar();
-const pupa = new Pupa();
-const butterfly = new Butterfly();
+let egg = new Egg();
+let caterpillar = new Caterpillar();
+let pupa = new Pupa();
+let butterfly = new Butterfly();
 
-lifeLoop.doStateAction(egg);
+// lifeLoop.doStateAction(egg);
+
 lifeLoop.changeState(caterpillar);
 lifeLoop.changeState(pupa);
 lifeLoop.changeState(butterfly);
+
+// lifeLoop.changeState(egg.changeToNextState());
+
+lifeLoop.changeState(egg.changeToRequiredState(3));

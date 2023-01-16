@@ -73,7 +73,7 @@ songList1.addSong("SOng1");
 songList1.addSong("SOng2");
 songList1.addSong("SOng3");
 
-const songListIterator = new SongIteratorRev(songList1);
+const songListIterator = new SongIterator(songList1);
 
 while (songListIterator.hasNext()) {
   songListIterator.playNext();
