@@ -11,14 +11,14 @@ interface Imediator {
   getCustomerList(): string[];
 }
 
-class MonitorPlant {
+class MonitorParts {
   makeMonitor(monitorType: string): string {
     console.log(`${monitorType} was created`);
     return "Common";
   }
 }
 
-class MonitorPlantSpec {
+class MonitorPartsSpec {
   makeMonitor(monitorType: string): string {
     console.log(`${monitorType} was created`);
     return "Spec";
@@ -32,18 +32,18 @@ class OfficialDistributor implements Imediator {
   }
 
   orderMonitor(customer: ICustomer, monitorType: string, info: string = "no add info"): void {
-    const monitorPlant = new MonitorPlant();
-    const monitorPlantSpec = new MonitorPlantSpec();
+    const monitorParts = new MonitorParts();
+    const monitorPartsSpec = new MonitorPartsSpec();
 
     if (monitorType === "Common") {
-      monitorPlant.makeMonitor(monitorType);
+      monitorParts.makeMonitor(monitorType);
       const name = customer.getName();
 
       console.log(`Order name: ${name}. Order monitor is ${monitorType}`);
       console.log(`Additional info: ${info}`);
       this.addToCustomerList(name);
     } else if (monitorType === "Spec") {
-      monitorPlantSpec.makeMonitor(monitorType);
+      monitorPartsSpec.makeMonitor(monitorType);
 
       const name = customer.getName();
 
