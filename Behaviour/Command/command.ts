@@ -1,5 +1,5 @@
-// Команда — это поведенческий паттерн,
-//  позволяющий заворачивать запросы или простые операции в отдельные объекты.
+// Команда — это поведенческий паттерн проектирования, который превращает запросы в объекты,
+//  позволяя передавать их как аргументы при вызове методов,
 
 // По факту прослойка между клиентом и бизнес-логикой
 
@@ -16,14 +16,14 @@ class Visitor {
 
   makeOrder(command: Iwaiter, order: string): string {
     this.command = command;
-    this.command.writeDownTheOrder(order);
+    this.command.writeDownTheOrderAndDeliverIt(order);
 
     return order;
   }
 }
 
 interface Iwaiter {
-  writeDownTheOrder(order: string);
+  writeDownTheOrderAndDeliverIt(order: string);
 }
 
 class Waiter1 implements Iwaiter {
@@ -33,7 +33,7 @@ class Waiter1 implements Iwaiter {
     this.receiver = receiver;
   }
 
-  writeDownTheOrder(order) {
+  writeDownTheOrderAndDeliverIt(order: string): void {
     this.receiver.cook(order);
   }
 }
