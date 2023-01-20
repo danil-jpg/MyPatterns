@@ -1,10 +1,10 @@
 <mxfile host="65bd71144e">
     <diagram id="BAw64UEVEJHP1WI1OmzK" name="Page-1">
-        <mxGraphModel dx="771" dy="368" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="447" dy="250" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="21" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;endArrow=block;endFill=0;" edge="1" parent="1" source="2" target="14">
+                <mxCell id="21" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;endArrow=block;endFill=0;" parent="1" source="2" target="14" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2" value="Den" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -13,7 +13,7 @@
                 <mxCell id="4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="2" vertex="1">
                     <mxGeometry y="26" width="160" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" style="edgeStyle=none;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;dashed=1;endArrow=block;endFill=0;" edge="1" parent="1" source="6" target="14">
+                <mxCell id="22" style="edgeStyle=none;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;dashed=1;endArrow=block;endFill=0;" parent="1" source="6" target="14" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="Serg" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -22,7 +22,7 @@
                 <mxCell id="8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="6" vertex="1">
                     <mxGeometry y="26" width="160" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" style="edgeStyle=none;html=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="10" target="14">
+                <mxCell id="20" style="edgeStyle=none;html=1;endArrow=block;endFill=0;dashed=1;" parent="1" source="10" target="14" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="Max" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -31,10 +31,10 @@
                 <mxCell id="12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="10" vertex="1">
                     <mxGeometry y="26" width="160" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="&lt;div style=&quot;color: rgb(171 , 178 , 191) ; background-color: rgb(40 , 44 , 52) ; font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 18px ; line-height: 24px&quot;&gt;&lt;div style=&quot;font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 24px&quot;&gt;&lt;div style=&quot;font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 24px&quot;&gt;&lt;span style=&quot;color: #e5c07b&quot;&gt;Isubscriber&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-family: , &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 24px&quot;&gt;&lt;span style=&quot;color: #e5c07b&quot;&gt;+inform()&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="365" y="380" width="110" height="70" as="geometry"/>
+                <mxCell id="14" value="&lt;div style=&quot;background-color: rgb(40 , 44 , 52) ; line-height: 24px&quot;&gt;&lt;div style=&quot;line-height: 24px&quot;&gt;&lt;div style=&quot;line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px&quot;&gt;&lt;b&gt;&lt;i&gt;Interface&amp;nbsp;&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px&quot;&gt;&lt;b&gt;&lt;i&gt;Isubscriber&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px&quot;&gt;+inform()&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="365" y="380" width="110" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" style="edgeStyle=none;html=1;endArrow=classic;endFill=1;startArrow=diamondThin;startFill=0;" edge="1" parent="1" source="15" target="14">
+                <mxCell id="24" style="edgeStyle=none;html=1;endArrow=classic;endFill=1;startArrow=diamondThin;startFill=0;" parent="1" source="15" target="14" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="YoutubeNotify" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
