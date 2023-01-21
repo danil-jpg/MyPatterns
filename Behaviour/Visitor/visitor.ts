@@ -7,8 +7,8 @@
 // - различие с декоратором.
 
 abstract class Car {
-  accept(visitor): void {
-    visitor(this);
+  accept(visitor: IExport): void {
+    visitor.visitor(this);
   }
 }
 
@@ -30,21 +30,28 @@ class Audi extends Car {
   }
 }
 
-function exportInfo(car: Car): void {
-  let res: string = "";
-  if (car instanceof Tesla) {
-    res = `Exported data: ${car.info()}`;
-    console.log(res);
-  }
-  if (car instanceof Bmw) {
-    res = `Exported data: ${car.info()}`;
-    console.log(res);
-  }
-  if (car instanceof Audi) {
-    res = `Exported data: ${car.info()}`;
-    console.log(res);
+interface IExport {
+  visitor(car: Car): void;
+}
+class ExportInfo implements IExport {
+  visitor(car: Car): void {
+    let res: string;
+    if (car instanceof Tesla) {
+      res = `Exported data: ${car.info()}`;
+      console.log(res);
+    }
+    if (car instanceof Bmw) {
+      res = `Exported data: ${car.info()}`;
+      console.log(res);
+    }
+    if (car instanceof Audi) {
+      res = `Exported data: ${car.info()}`;
+      console.log(res);
+    }
   }
 }
+
+const exportInfo = new ExportInfo();
 
 const bmw = new Bmw();
 

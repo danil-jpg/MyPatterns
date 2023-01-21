@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="TvDOPATmzNFuXZl5UuAB" name="Page-1">
-        <mxGraphModel dx="932" dy="1503" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="1">
+        <mxGraphModel dx="1413" dy="1690" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="1">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -19,7 +19,7 @@
                 <mxCell id="25" style="edgeStyle=none;html=1;entryX=0.587;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;endArrow=block;endFill=0;" parent="1" source="6" target="22" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamondThin;startFill=1;endArrow=diamondThin;endFill=1;" edge="1" parent="1" source="6" target="18">
+                <mxCell id="30" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamondThin;startFill=1;endArrow=diamondThin;endFill=1;" parent="1" source="6" target="18" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="Pupa" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -31,7 +31,7 @@
                 <mxCell id="24" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;dashed=1;endArrow=block;endFill=0;" parent="1" source="10" target="22" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamondThin;startFill=1;endArrow=diamondThin;endFill=1;" edge="1" parent="1" source="10" target="6">
+                <mxCell id="29" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamondThin;startFill=1;endArrow=diamondThin;endFill=1;" parent="1" source="10" target="6" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="Caterpillar" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -43,7 +43,7 @@
                 <mxCell id="23" style="edgeStyle=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;dashed=1;" parent="1" source="14" target="22" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamondThin;startFill=1;endArrow=diamondThin;endFill=1;" edge="1" parent="1" source="14" target="10">
+                <mxCell id="28" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=diamondThin;startFill=1;endArrow=diamondThin;endFill=1;" parent="1" source="14" target="10" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="14" value="Egg" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -64,8 +64,8 @@
                 <mxCell id="27" style="edgeStyle=none;html=1;endArrow=classic;endFill=1;startArrow=diamondThin;startFill=0;" parent="1" source="22" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="&lt;p style=&quot;line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&lt;b&gt;&lt;i&gt;Interface&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&lt;b&gt;&lt;i&gt;&amp;nbsp;IlifeState&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&amp;nbsp;stage: string;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&amp;nbsp;phase: number;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&amp;nbsp;thisState(): string;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&amp;nbsp;doSomething(): string;&lt;/span&gt;&lt;br&gt;&lt;/p&gt;" style="html=1;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="441.25" y="-30" width="197.5" height="220" as="geometry"/>
+                <mxCell id="22" value="&lt;p style=&quot;line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&lt;b&gt;&lt;i&gt;Interface&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&lt;b&gt;&lt;i&gt;&amp;nbsp;IlifeState&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&amp;nbsp;stage: string;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&amp;nbsp;phase: number;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&amp;nbsp;thisState(): string;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;font-size: 18px ; background-color: rgb(0 , 0 , 0)&quot;&gt;&amp;nbsp;doSomething(): string;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;changeToNextState(): IlifeState&lt;/span&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;text-align: left ; line-height: 24px&quot;&gt;&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;changeToRequiredState(number: number): IlifeState&lt;/span&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;" style="html=1;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="295.63" y="-40" width="488.75" height="340" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

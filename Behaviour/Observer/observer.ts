@@ -9,16 +9,17 @@ class YoutubeNotify {
     this.arr = [];
   }
 
+  addSubscriber(subscriber: Isubscriber): number {
+    this.arr.push(subscriber);
+    return this.arr.indexOf(subscriber);
+  }
+
   notifyAll(): void {
     this.arr.forEach((item) => {
       item.inform("A new video has been arrived!");
     });
   }
 
-  addSubscriber(subscriber: Isubscriber): number {
-    this.arr.push(subscriber);
-    return this.arr.indexOf(subscriber);
-  }
   removeSubsriber(index: number): void {
     this.arr.splice(index, 1);
   }

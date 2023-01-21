@@ -80,7 +80,7 @@ class Customer implements ICustomer {
     return this.name;
   }
 
-  makeOrder(monitor, info): void {
+  makeOrder(monitor: string, info: string): void {
     this.officialDistributor.orderMonitor(this, monitor, info);
   }
 }

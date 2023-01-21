@@ -34,7 +34,7 @@ class SavePlace {
 }
 
 abstract class Imemento {
-  public value: [];
+  public value: (string | number)[];
 }
 
 class Memento extends Imemento {
